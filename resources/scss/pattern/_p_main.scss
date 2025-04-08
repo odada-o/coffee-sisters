@@ -1,6 +1,6 @@
 // 메인 페이지 스타일
 .intro {
-  background: #Fff;
+  background: #F8F8F8;
   .inner {
     display: flex;
     a {
@@ -119,12 +119,13 @@
 
 .sec-event {
   .video {
-    width: 1300px;
-    height: 1000px;
+    position: relative;
+    // max-width: 1300px;
+    max-height: 1000px;    
+    min-height: 700px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-      border-radius: 10px;
     &::after {
       content: '';
       position: absolute;
@@ -136,6 +137,8 @@
       z-index: 1;
     }
     video {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -151,8 +154,12 @@
     text-align: center;
     color: $white;
     strong {
-      font-size: 67px;
-      line-height: 1.2;
+      font-size: 58px;
+    line-height: 1;
+      @include tabletMore {
+        font-size: 67px;
+        line-height: 1.2;
+      }
     }
     p {
       font-size: 18px;
@@ -178,13 +185,21 @@
 
 .price-list {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+    gap: 60px 100px;
   margin: 40px auto;
-  background-color: #fff;
   border-radius: 12px;
   // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 70px 100px;
+    padding: 40px 0;
   position: relative;
+
+  @include tabletMore {
+    flex-direction: row;
+    gap: 0;
+  padding: 70px 100px;
+  background-color: #fff;
+  }
   
   // 커피 아이콘 추가
   &:before {
@@ -265,21 +280,5 @@
     background-color: $primary-50;
     padding: 3px 5px 2px;
     border-radius: 4px;
-  }
-}
-
-// 반응형 디자인
-@media (max-width: 768px) {
-  .price-list {
-    padding: 20px;
-    margin: 20px auto;
-    
-    dt {
-      font-size: 18px;
-    }
-    
-    dd {
-      font-size: 14px;
-    }
   }
 }

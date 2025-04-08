@@ -245,7 +245,12 @@ legend {
 
 .sec-g {
   overflow: hidden;
-  padding: 150px 0;
+  padding: 90px 0;
+}
+@media (min-width: 1024px) {
+  .sec-g {
+    padding: 150px 0;
+  }
 }
 .sec-g__area {
   display: flex;
@@ -272,7 +277,7 @@ legend {
   align-items: center;
   gap: 10px;
   margin: 50px auto 0;
-  padding: 11px 10px 9px 20px;
+  padding: 13px 20px 12px 30px;
   font-size: 1rem;
   background: #F49D1D;
   border-radius: 44px;
@@ -934,7 +939,7 @@ legend {
 }
 
 .intro {
-  background: #Fff;
+  background: #F8F8F8;
 }
 .intro .inner {
   display: flex;
@@ -1038,12 +1043,12 @@ legend {
 }
 
 .sec-event .video {
-  width: 1300px;
-  height: 1000px;
+  position: relative;
+  max-height: 1000px;
+  min-height: 700px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
 }
 .sec-event .video::after {
   content: "";
@@ -1056,6 +1061,8 @@ legend {
   z-index: 1;
 }
 .sec-event .video video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -1073,8 +1080,14 @@ legend {
   color: #fff;
 }
 .sec-event .text strong {
-  font-size: 67px;
-  line-height: 1.2;
+  font-size: 58px;
+  line-height: 1;
+}
+@media (min-width: 1024px) {
+  .sec-event .text strong {
+    font-size: 67px;
+    line-height: 1.2;
+  }
 }
 .sec-event .text p {
   font-size: 18px;
@@ -1098,12 +1111,21 @@ legend {
 
 .price-list {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 60px 100px;
   margin: 40px auto;
-  background-color: #fff;
   border-radius: 12px;
-  padding: 70px 100px;
+  padding: 40px 0;
   position: relative;
+}
+@media (min-width: 1024px) {
+  .price-list {
+    flex-direction: row;
+    gap: 0;
+    padding: 70px 100px;
+    background-color: #fff;
+  }
 }
 .price-list:before {
   content: "";
@@ -1166,17 +1188,4 @@ legend {
   background-color: #f4611d;
   padding: 3px 5px 2px;
   border-radius: 4px;
-}
-
-@media (max-width: 768px) {
-  .price-list {
-    padding: 20px;
-    margin: 20px auto;
-  }
-  .price-list dt {
-    font-size: 18px;
-  }
-  .price-list dd {
-    font-size: 14px;
-  }
 }/*# sourceMappingURL=styles.css.map */
