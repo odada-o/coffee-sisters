@@ -1,0 +1,285 @@
+// 메인 페이지 스타일
+.intro {
+  background: #Fff;
+  .inner {
+    display: flex;
+    a {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+.slide-intro {
+  max-width: $grid;
+  margin: 0 auto;
+  .swiper-slide {
+    position: relative;
+    &.swiper-slide-active {
+      .text-area {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    img {
+      height: 100%;
+      object-position: 50% 100%;
+    }
+    .text-area {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 70%;
+      max-width: 400px;
+      opacity: 0;
+      transition: all 0.5s;
+      // .text-area__tit
+      &__tit {
+        font-size: 3rem;
+        color: $gray-90;
+        font-family: 'GmarketSansMedium';
+        font-weight: $font-medium;
+      }
+      &__cont {
+        color: $gray-70;
+      }
+      &__goto {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 7px 20px;
+        background: $primary;
+        color: $white;
+      }
+    }
+    img, video {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .swiper-pagination {
+    display: none;
+  }
+}
+
+// tablet
+@media screen and (min-width: 600px) {
+  .slide-intro .swiper-slide img {
+    // height: 50vh;
+  }
+}
+
+// desktop
+@media screen and (min-width: 1024px) {
+  .slide-intro {
+    .swiper-slide {
+      height: 495px;
+      img, video {
+        width: auto;
+        margin: 0 auto;
+        // object-fit: cover;
+      }
+      .text-area {
+        width: 100%;
+        max-width: none;
+        text-align: left;
+      }
+      .text-area__tit {
+        font-size: 6rem;
+      }
+      .text-area__cont {
+        font-size: 2rem;
+      }
+      .text-area__goto {
+        margin-top: 30px;
+      }
+    }
+    .swiper-pagination {
+      display: block;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
+}
+
+.slide-studio {
+  margin-left: 0;
+  .swiper-slide {
+    img{
+      height: 302px;
+      object-fit: cover;
+    }
+  }
+  .swiper-pagination {
+    bottom: -50px;
+  }
+}
+
+.sec-event {
+  .video {
+    width: 1300px;
+    height: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+      border-radius: 10px;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 80%;
+    }
+  }
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $white;
+    strong {
+      font-size: 67px;
+      line-height: 1.2;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 30px;
+    }
+    .more {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 20px;
+      color: $white;
+      border: 1px solid $white;
+      border-radius: 46px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.price-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  // box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 70px 100px;
+  position: relative;
+  
+  // 커피 아이콘 추가
+  &:before {
+    content: '';
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 19h18v2H2v-2zM20 3H4v14h16V3zm-3 8h-2v3h-4v-3H9v-2h2V6h4v3h2v2z" fill="rgba(255,107,0,0.2)"/></svg>');
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    opacity: 0.1;
+    transform: rotate(15deg);
+    pointer-events: none;
+  }
+  
+  // 각 섹션(dl) 스타일링
+  dl {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    // border-bottom: 1px dashed $gray-20;
+    position: relative;
+    transition: all 0.3s ease;
+    
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    // 예약금 오타 수정 문구
+    &:nth-child(5) {
+      dd:first-child:after {
+        content: '* 올바른 표기: "예약금 20만원 선입금 되어야 예약 확정됩니다."';
+        display: block;
+        font-size: 13px;
+        color: #888;
+        margin-top: 5px;
+        font-style: italic;
+      }
+    }
+  }
+  
+  // 제목(dt) 스타일링
+  dt {
+    font-size: 20px;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid $primary;
+    line-height: 1.3;
+  }
+  
+  // 내용(dd) 스타일링
+  dd {
+    margin-bottom: 3px;
+    padding-left: 20px;
+    position: relative;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    // 내용 앞에 붙는 대시(-) 스타일링
+    &:before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      color: #888;
+    }
+  }
+  
+  // 강조 텍스트(b) 스타일링
+  b {
+    color: $white;
+    font-weight: 500;
+    background-color: $primary-50;
+    padding: 3px 5px 2px;
+    border-radius: 4px;
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .price-list {
+    padding: 20px;
+    margin: 20px auto;
+    
+    dt {
+      font-size: 18px;
+    }
+    
+    dd {
+      font-size: 14px;
+    }
+  }
+}
