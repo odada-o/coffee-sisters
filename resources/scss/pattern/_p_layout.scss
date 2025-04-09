@@ -103,6 +103,7 @@
 #collapsibleNavbar {
   display: none;
   position: relative;
+  flex-grow: 0;
   @include tabletMore {
     display: block;
   }
@@ -365,7 +366,7 @@ $font-family: 'Noto Sans KR', sans-serif;
         bottom: -6px;
         width: 30px;
         height: 2px;
-        background-color: $primary-color;
+        background-color: #707070;
       }
     }
   }
