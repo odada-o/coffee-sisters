@@ -98,6 +98,21 @@
       @include sr-only;
     }
   }
+
+  .lang,
+  .all-menu {
+    display: flex;
+    padding: 10px 20px;
+    background: $primary;
+    border-radius: 41px;
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    svg {
+      stroke: $gray-90;
+    }
+  }
 }
 
 #collapsibleNavbar {
@@ -109,6 +124,7 @@
   }
   .navbar-nav {
     display: flex;
+    flex-direction: row;
     > li {
       position: relative;
       &:hover {
@@ -550,3 +566,21 @@ $font-family: 'Noto Sans KR', sans-serif;
 .icon-facebook:before { content: "\e904"; }
 .icon-youtube:before { content: "\e905"; }
 .icon-blog:before { content: "\e906"; }
+
+
+.hero {
+  background: #eee;
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    h2 {
+      font-family: $ff-sw;
+      font-size: 2.4rem;
+      font-weight: 400;
+    }
+  }
+}

@@ -1,5 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@font-face {
+  font-family: "SDSwaggerTTF";
+  src: url("https://cdn.jsdelivr.net/gh/fontbee/font@main/SDSwagger/SDSwaggerTTF.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 /* 기본 폰트 설정 */
 body {
   font-size: 16px;
@@ -259,12 +265,17 @@ legend {
 }
 .sec-g__tit {
   padding-bottom: 10px;
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-family: "SDSwaggerTTF", sans-serif;
   text-align: center;
 }
 .sec-g__tit span {
   color: #E73C1A;
+}
+@media (min-width: 1024px) {
+  .sec-g__tit {
+    font-size: 2.4rem;
+  }
 }
 .sec-g__desc {
   margin-bottom: 1.5rem;
@@ -526,6 +537,21 @@ legend {
   white-space: nowrap !important;
   border: 0 !important;
 }
+#header .lang,
+#header .all-menu {
+  display: flex;
+  padding: 10px 20px;
+  background: #F49D1D;
+  border-radius: 41px;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+#header .lang svg,
+#header .all-menu svg {
+  stroke: #1d1d1d;
+}
 
 #collapsibleNavbar {
   display: none;
@@ -539,6 +565,7 @@ legend {
 }
 #collapsibleNavbar .navbar-nav {
   display: flex;
+  flex-direction: row;
 }
 #collapsibleNavbar .navbar-nav > li {
   position: relative;
@@ -939,6 +966,23 @@ legend {
   content: "\e906";
 }
 
+.hero {
+  background: #eee;
+}
+.hero .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.hero .inner h2 {
+  font-family: "SDSwaggerTTF", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
 .intro {
   background: #f8f8f8;
 }
@@ -1087,39 +1131,51 @@ legend {
 .price-list {
   display: flex;
   flex-direction: column;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 55px 100px;
-  margin: 40px auto;
-  border-radius: 12px;
+  justify-content: center;
+  gap: 30px 100px;
+  margin: 0 auto 0;
+  padding-top: 90px;
+  padding-bottom: 100px;
+  background: #fff;
+  border-radius: 8px;
+  border: 2px solid #5E4D3D;
   position: relative;
+  overflow: hidden;
 }
 @media (min-width: 1024px) {
   .price-list {
+    flex-wrap: wrap;
     flex-direction: row;
-    padding: 70px 100px;
     margin: 20px auto;
-    background-color: #fff;
+  }
+  .price-list li {
+    width: 48%;
   }
 }
-.price-list:before {
-  content: "";
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 19h18v2H2v-2zM20 3H4v14h16V3zm-3 8h-2v3h-4v-3H9v-2h2V6h4v3h2v2z" fill="rgba(255,107,0,0.2)"/></svg>');
-  background-repeat: no-repeat;
-  width: 100px;
-  height: 100px;
+.price-list strong {
   position: absolute;
-  top: -30px;
-  right: -30px;
-  opacity: 0.1;
-  transform: rotate(15deg);
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  padding: 5px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5E4D3D;
+  text-align: center;
+  background: #5E4D3D;
+  color: #fff;
 }
 .price-list dl {
-  margin-bottom: 30px;
-  padding-bottom: 25px;
   position: relative;
   transition: all 0.3s ease;
+  width: 40%;
+  padding: 0 20px;
+}
+@media (min-width: 1024px) {
+  .price-list dl {
+    padding: 0 50px;
+  }
 }
 .price-list dl:last-child {
   border-bottom: none;
@@ -1137,15 +1193,12 @@ legend {
 .price-list dt {
   font-size: 20px;
   font-weight: 700;
-  color: #F49D1D;
-  margin-bottom: 15px;
-  padding-left: 15px;
-  border-left: 4px solid #F49D1D;
-  line-height: 0.8;
+  margin-bottom: 5px;
+  color: #5E4D3D;
 }
 .price-list dd {
   margin-bottom: 3px;
-  padding-left: 20px;
+  padding-left: 15px;
   position: relative;
 }
 .price-list dd:last-child {
@@ -1163,4 +1216,141 @@ legend {
   background-color: #f4611d;
   padding: 3px 5px 2px;
   border-radius: 4px;
+}
+.price-list .ft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #F49D1D;
+  padding: 15px 20px;
+}
+
+.sec-menu {
+  padding: 20px 0;
+}
+.sec-menu .inner {
+  display: grid;
+  flex-direction: column;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px;
+}
+@media (min-width: 1024px) {
+  .sec-menu .inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.sec-menu .price-list dl {
+  width: 100%;
+}
+.sec-menu .blue {
+  border: 2px solid #112B87;
+}
+.sec-menu .blue strong {
+  display: block;
+  background: #112B87;
+}
+.sec-menu .blue dt {
+  color: #112B87;
+}
+.sec-menu .blue dd b {
+  background: #112B87;
+}
+.sec-menu .blue .ft {
+  background: #e1e7ff;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.menu-board {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+}
+.menu-board .header {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-board.orange .header {
+  background-color: #FF5722;
+  color: white;
+}
+.menu-board.purple .header {
+  background-color: #3F3F94;
+  color: white;
+}
+.menu-board.green .header {
+  background-color: #8BC34A;
+  color: white;
+}
+.menu-board.brown .header {
+  background-color: #5D4037;
+  color: white;
+}
+.menu-board .logo {
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.menu-board .logo img {
+  height: 24px;
+  margin-right: 5px;
+}
+.menu-board .price {
+  font-size: 18px;
+  font-weight: bold;
+}
+.menu-board .content {
+  background-color: #FFF8E1;
+  flex-grow: 1;
+  padding: 15px;
+  text-align: center;
+}
+.menu-board .category {
+  color: #FF5722;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.menu-board .category .tag {
+  font-size: 12px;
+  color: #999;
+}
+.menu-board .menu-items {
+  margin-bottom: 30px;
+}
+.menu-board .menu-item {
+  margin-bottom: 3px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.menu-board.orange .footer {
+  background-color: #FF5722;
+}
+.menu-board.purple .footer {
+  background-color: #3F3F94;
+}
+.menu-board.green .footer {
+  background-color: #8BC34A;
+}
+.menu-board.brown .footer {
+  background-color: #5D4037;
+}
+.menu-board .footer {
+  background-color: inherit;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */
